@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Price calculation</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link rel="stylesheet" href="styles.css">
+        <script type=""text/javascript" src="javscr.js"></script>
+        <nav class="navbar box-shadow">
+            <div class="navbar_container ">
+                <a href="index.html" id="navbar_logo"> 
+                <img src="/img/greenpulse.jpg"/><i class="i_globe">
+                    HOME
+                    </a>
+                    </i>
+                <!--logo from icons8.com-->
+                <ul class="navbar_menu">
+                    <li class="navbar_item">
+                        <a href="AboutUs.html" class="navButton">
+                            About us
+                        </a>
+                    </li>
+                    <li class="navbar_item">
+                        <a href="contact.html" class="navButton">
+                            Contact
+                        </a>
+                    </li>
+                    <li class="navbar_item">
+                        <a href="calc.html" class="navButton">
+                            Pricing
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+</head>
+<body class="calc">
+    <script>
+        var customerCount = 0;
+        function increaseCustomerCount() {
+            var min = 10;
+            var max = 100;
+            var increase = Math.floor(Math.random() * (max - min + 1)) + min;
+            customerCount += increase;
+            document.getElementById('customerCounter').innerText = customerCount + ' Customers are already using our services!';
+            }
+        setInterval(increaseCustomerCount, 2000);
+    </script>
+    <div id="customerCounter">0</div>
+
+    <div class="calculator box-shadow">
+        <label for="energyUsage">Energy Usage (kWh):</label>
+            <input type="number" id="energyUsage" min="0" placeholder="Enter usage"
+            onkeypress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;">   
+            <!--prevents number input "in real time" aka on key press funny enough-->
+        <label for="ratePerKW">Current Rate (per kWh):</label>
+            <input type="text" id="ratePerKW" placeholder="Rate will appear here" readonly>
+        <button id="calcButton">Calculate Total</button>
+        <label for="totalCost">Total Cost:</label>
+            <input type="text" id="totalCost" placeholder="Total cost will appear here" readonly>
+    </div>
+    <script>
+    window.onload = function () {
+        function randRate(min, max) {
+        return Math.random() * (max - min) + min;
+        }
+    window.ratePerKW = randRate(0.15, 0.9);
+    }
+
+    document.getElementById('calcButton').addEventListener('click', calculateTotal)
+
+    function calculateTotal() {
+        const energyUsage = document.getElementById('energyUsage').value;
+        document.getElementById('ratePerKW').value = "£" + window.ratePerKW.toFixed(2);
+        const totalCost = energyUsage * window.ratePerKW;
+        document.getElementById('totalCost').value = "£" + totalCost.toFixed(2);
+    }
+    </script>
+</body>
+<footer id="footer">
+        <h3>© GreenPulse 2024</h3>
+</footer>
+

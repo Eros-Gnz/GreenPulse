@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+
+        <link rel="stylesheet" href="styles.css">
+
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+
+        <script type=""text/javascript" src="javscr.js"></script>
+        
+        <nav class="navbar box-shadow">
+            <div class="navbar_container ">
+                <a href="index.html" id="navbar_logo"> 
+                    <img src="/img/greenpulse.jpg"/><i class="i_globe">
+                        HOME
+                        </a>
+                        </i>
+                <ul class="navbar_menu">
+                    <li class="navbar_item">
+                        <a href="AboutUs.html" class="navButton">
+                            About us
+                        </a>
+                    </li>
+                    <li class="navbar_item">
+                        <a href="contact.html" class="navButton">
+                            Contact
+                        </a>
+                    </li>
+                    <li class="navbar_item">
+                        <a href="calc.html" class="navButton">
+                            Pricing
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+</head>
+
+    <body class="contact">  
+        <form class="form box-shadow">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name here!">
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" placeholder="someone@gmail/outlook/etc.com">
+
+            <label for="message">Send a message!</label>
+            <input type="text" id="message" name="message" size="75" placeholder="Hello there!">
+
+            <label for="lang">What country are you messaging from?</label>
+        <select name="country" id="location">
+            <option value="sac">Select a country:</option>
+            <option value="ni">Northern Ireland</option>
+            <option value="wales">Wales</option>
+            <option value="eng">England</option>
+            <option value="scotlnd">Scotland</option>
+            <option value="roi">R.O.I</option>
+            <option value="other">Elsewhere!</option>
+        </select>
+
+        <button id="formButton" type="submit" onclick="return formValidate()">
+            Click here to send!
+        </button>
+            <div id="dialog" title="Basic dialog" style="display:none;"></div>
+            <!--Text is in the javascript file-->
+        </form>
+            <p id="contactus"> Need to contact us? Provide your details above!</p>  
+    </body>
+
+    <footer id="footer">
+        <h3>©GreenPulse 2024</h3>
+    </footer>
